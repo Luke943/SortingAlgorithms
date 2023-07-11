@@ -1,6 +1,8 @@
 ## Description
 
-Various sorting and searhing algorithms implemented in C. All designed for 32-bit unsigned integers.
+Various sorting and searhing algorithms implemented in C.
+All designed for 32-bit unsigned integers.
+The code for the algorithms is found in `sorting.c`.
 
 ## Algorithms
 
