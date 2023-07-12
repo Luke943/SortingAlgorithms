@@ -11,8 +11,8 @@
 int main(void)
 {
     int loops = 10;
-    int array_size = 10;
-    int max_size = 1 << 6;
+    int array_size = 15;
+    int max_size = 1 << 16;
     srand((unsigned int)time(NULL));
     unsigned int *array = malloc(sizeof(unsigned int) * array_size);
     if (!array)
@@ -25,7 +25,7 @@ int main(void)
             printf("%d ", array[j]);
         }
 
-        quickSort(array, array_size);
+        radixSort(array, array_size);
         printf("--> ");
         for (int j = 0; j < array_size; j++)
         {

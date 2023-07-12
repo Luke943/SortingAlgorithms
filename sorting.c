@@ -219,8 +219,38 @@ void bucketSort(unsigned int *array, unsigned int size)
 /* Radix sort
 Distributes elements into buckets according to their 'radix' and rebuilds the array.
 The bucketing process is repeated as many times as needed by the radix (preserving order from previous iteration).
+Using radix of 256, so 4 iterations need on 32-bit integers.
  */
 void radixSort(unsigned int *array, unsigned int size)
 {
-    unsigned int radix = (1 << 8) - 1;
+    int counts[0x100];
+    unsigned int *input = array;
+    unsigned int *output = malloc(sizeof(unsigned int) * size);
+    if (!output)
+        exit(1);
+    for (int i = 0; i < 4; i++)
+    {
+        // Zero the counts
+        for (int j = 0; j < 0x100; j++)
+            counts[j] = 0;
+        // Count
+        for (int j = 0; j < size; j++)
+            counts[(input[j] >> (i * 8)) & 0xff]++;
+        // Make counts cumulative to give indices
+        for (int j = 1; j < 0x100; j++)
+            counts[j] += counts[j - 1];
+        // Build output
+        for (int j = size - 1; j >= 0; j--)
+        {
+            int index = (input[j] >> (i * 8)) & 0xff;
+            counts[index]--;
+            output[counts[index]] = input[j];
+        }
+        // Swap input array with output by swapping pointers
+        // Happens EVEN number of times so things end where they started
+        unsigned int *tmp = input;
+        input = output;
+        output = tmp;
+    }
+    free(output);
 }
