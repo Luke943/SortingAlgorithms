@@ -17,7 +17,7 @@ void quickSort(unsigned int *array, unsigned int size);
 void mergeSort(unsigned int *array, unsigned int size);
 
 // Sorts array in place. Impractical - requires huge amount of memory depending on max value of array.
-void bucketSort(unsigned int *array, unsigned int size);
+void countingSort(unsigned int *array, unsigned int size);
 
 // Sorts array in place. O(nw) time complexity where w is the key length.
 void radixSort(unsigned int *array, unsigned int size);

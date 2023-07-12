@@ -186,11 +186,11 @@ int binarySearch(unsigned int *sortedArray, unsigned int size, unsigned int valu
     return -1;
 }
 
-/* Bucket sort
+/* Counting sort
 Creates array of all possible values and counts how many of each there are.
 Then rebuilds sorted array.
  */
-void bucketSort(unsigned int *array, unsigned int size)
+void countingSort(unsigned int *array, unsigned int size)
 {
     unsigned int max = 0;
     for (int i = 0; i < size; i++)

@@ -10,9 +10,10 @@
 
 int main(void)
 {
-    int loops = 10;
-    int array_size = 10000;
-    int max_size = 1 << 16;
+    printf("%d\n", RAND_MAX);
+    int loops = 2;
+    int array_size = 1000000000;
+    // int max_size = 1 << 16;
     srand((unsigned int)time(NULL)); // Initialization, should only be called once.
     unsigned int *array = malloc(sizeof(unsigned int) * array_size);
     if (!array)
@@ -22,11 +23,11 @@ int main(void)
     {
         for (int j = 0; j < array_size; j++)
         {
-            array[j] = rand() % max_size;
+            array[j] = rand() * rand();
         }
 
         clock_t start = clock();
-        bubbleSort(array, array_size);
+        radixSort(array, array_size);
         clock_t end = clock();
         double run_time = ((double)(end - start)) / CLOCKS_PER_SEC;
         printf("%d. %f\n", i + 1, run_time);

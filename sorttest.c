@@ -21,7 +21,7 @@ int main(void)
     {
         for (int j = 0; j < array_size; j++)
         {
-            array[j] = rand() % max_size;
+            array[j] = rand();
             printf("%d ", array[j]);
         }
 
