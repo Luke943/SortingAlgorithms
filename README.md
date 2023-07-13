@@ -14,12 +14,12 @@ The table below shows all the sorting algorithms included and some performance i
 | Bubble sort | Comparison | $O(n^2)$ | $O(n)$ | Basic and very slow.
 | Selection sort | Comparison | $O(n^2)$ | $O(n)$ | Basic and slow.
 | Insertion sort | Comparison | $O(n^2)$ | $O(n)$ | Basic and slow.
-| Quick sort | Comparison |  $O(n \log n)^*$ | $O(n)$ | Fast. Recursive calls can cause stack overflow for large $n$.
-| Merge sort | Comparison |  $O(n \log n)$ | $O(n)$ | Fast. Assigns some extra memory.
-| Counting sort | Distributing |  $O(n + r)$ | $O(n + r)$ | Only suitable when  $r$ (range of values in array) is small as assigns memory for counts.
+| Quick sort | Comparison | $O(n \log n)^*$ | $O(n)$ | Fast. Recursive calls can cause stack overflow for large $n$.
+| Merge sort | Comparison | $O(n \log n)$ | $O(n)$ | Fast. Assigns some extra memory.
+| Counting sort | Distributing | $O(n + r)$ | $O(n + r)$ | Only suitable when  $r$ (range of values in array) is small as assigns memory for counts.
 | Radix sort† | Distributing |  $O(n \cdot w)$ | $O(n + w)$ | The fastest. Assigns extra memory of key length $w$ for counts.
 
-**Typical case is $O(n \log n)$, but worst case will be $O(n^2)$.*
+**Average time. Worst case is quadratic.*
 
 *†Implemented here with fixed key length of 256.*
 
