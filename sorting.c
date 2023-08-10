@@ -13,7 +13,6 @@ Then keeps performing iterations until no more changes are made.
 void bubbleSort(unsigned int *array, unsigned int size)
 {
     bool changeMade = true;
-    unsigned int tmp;
     while (changeMade)
     {
         changeMade = false;
@@ -21,7 +20,7 @@ void bubbleSort(unsigned int *array, unsigned int size)
         {
             if (array[i] > array[i + 1])
             {
-                tmp = array[i + 1];
+                unsigned int tmp = array[i + 1];
                 array[i + 1] = array[i];
                 array[i] = tmp;
                 changeMade = true;
@@ -89,29 +88,27 @@ void quickSort(unsigned int *array, unsigned int size)
 {
     if (size > 1)
     {
-        int pivotIndex = 0; // 1st element used as pivot
-        unsigned int pivotValue = array[pivotIndex];
+        unsigned int pivotValue = array[size / 2]; // Midpoint used as pivot
         int i = 0;
         int j = size - 1;
-        unsigned int tmp;
-        while (i < j)
+        while (i <= j)
         {
-            while (array[i] <= pivotValue)
+            while (array[i] < pivotValue)
                 i++;
             while (array[j] > pivotValue)
                 j--;
-            if (i < j)
+            if (i <= j)
             {
-                tmp = array[i];
+                unsigned int tmp = array[i];
                 array[i] = array[j];
                 array[j] = tmp;
+                i++;
+                j--;
             }
         }
-        array[pivotIndex] = array[j];
-        array[j] = pivotValue;
 
-        quickSort(array, j);
-        quickSort(array + j + 1, size - j - 1);
+        quickSort(array, j + 1);
+        quickSort(array + i, size - i);
     }
 }
 
