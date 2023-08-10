@@ -7,7 +7,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-#include "sorting.h"
+#include "../sorting.h"
 
 int main(void)
 {

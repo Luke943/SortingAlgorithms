@@ -21,7 +21,7 @@ The table below shows all the sorting algorithms included and some performance i
 
 **Average time. Worst case is quadratic.*
 
-*†Implemented here with fixed key length of 256.*
+*†Implemented here with fixed radix of 256.*
 
 ### Other
 
@@ -43,10 +43,8 @@ All tests have been carried out with randomly generated 32-bit unsigned integers
 
 *‡Around this size quick sort becomes unstable as the recursive calls can cause a stack overflow.*
 
-## Files
+## Contents
 
 - `sorting.c` - Contains function definitions for sorting algorithms.
 - `sorting.h` - Corresponding header file with function declarations.
-- `sorttest.c` - Tests the algorithms sort correctly.
-- `searchtest.c` - Tests the search algorithms.
-- `speedtest.c` - Times the execution speed of the algorithms.
+- `tests/` - Contains three files to test the correctness and speed of the algorithms and a `Makefile` for `gcc`.

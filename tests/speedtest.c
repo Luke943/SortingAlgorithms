@@ -6,15 +6,15 @@
 #include <stdlib.h>
 #include <time.h>
 
-#include "sorting.h"
+#include "../sorting.h"
 
 int main(void)
 {
     printf("%d\n", RAND_MAX);
-    int loops = 2;
-    int array_size = 1000000000;
+    int loops = 50;
+    int array_size = 100000;
     // int max_size = 1 << 16;
-    srand((unsigned int)time(NULL)); // Initialization, should only be called once.
+    srand((unsigned int)time(NULL));
     unsigned int *array = malloc(sizeof(unsigned int) * array_size);
     if (!array)
         exit(1);
@@ -27,7 +27,7 @@ int main(void)
         }
 
         clock_t start = clock();
-        radixSort(array, array_size);
+        quickSort(array, array_size);
         clock_t end = clock();
         double run_time = ((double)(end - start)) / CLOCKS_PER_SEC;
         printf("%d. %f\n", i + 1, run_time);

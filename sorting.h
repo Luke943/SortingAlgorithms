@@ -1,28 +1,28 @@
 #ifndef SORTING_H
 #define SORTING_H
 
-// Sorts array in place. O(n^2) time complexity.
+// Sorts array in place using bubble sort.
 void bubbleSort(unsigned int *array, unsigned int size);
 
-// Sorts array in place. O(n^2) time complexity.
+// Sorts array in place using selection sort.
 void selectionSort(unsigned int *array, unsigned int size);
 
-// Sorts array in place. O(n^2) time complexity.
+// Sorts array in place using insertion sort.
 void insertionSort(unsigned int *array, unsigned int size);
 
-// Sorts array in place. O(nlog(n)) on average, but worst-case O(n^2).
+// Sorts array in place using quick sort.
 void quickSort(unsigned int *array, unsigned int size);
 
-// Sorts array in place. O(nlog(n)) time complexity, but assigns some extra memory.
+// Sorts array in place using merge sort. Assigns some extra memory.
 void mergeSort(unsigned int *array, unsigned int size);
 
-// Sorts array in place. Impractical - requires huge amount of memory depending on max value of array.
+// Sorts array in place using counting sort. Impractical - can require huge amount of memory.
 void countingSort(unsigned int *array, unsigned int size);
 
-// Sorts array in place. O(nw) time complexity where w is the key length.
+// Sorts array in place using radix sort (with radix of 256).
 void radixSort(unsigned int *array, unsigned int size);
 
-// Finds the index of a value in an already sorted array (or -1 if not found). O(log(n)) time complexity.
+// Finds the index of a value in an already sorted array (or -1 if not found)
 int binarySearch(unsigned int *sortedArray, unsigned int size, unsigned int value);
 
 #endif
