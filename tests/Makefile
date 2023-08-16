@@ -1,10 +1,21 @@
 all: sort speed search
 
-sort:
-	gcc -o sorttest sorttest.c ../sorting.c
+sort: sorting.o
+	gcc -o sorttest sorttest.c sorting.o
 	
-speed:
-	gcc -o speedtest speedtest.c ../sorting.c
+speed: sorting.o
+	gcc -o speedtest speedtest.c sorting.o
 
-search:
-	gcc -o searchtest searchtest.c ../sorting.c
+search: sorting.o
+	gcc -o searchtest searchtest.c sorting.o
+
+sorting.o:
+	gcc -c ../sorting.c
+
+clean:
+ifneq ($(wildcard *.o), )
+	rm *.o
+endif
+ifneq ($(wildcard *.exe), )
+	rm *.exe
+endif
