@@ -9,7 +9,7 @@ speed: sorting.o
 search: sorting.o
 	gcc -o searchtest searchtest.c sorting.o
 
-sorting.o:
+sorting.o: ../sorting.c
 	gcc -c ../sorting.c
 
 clean:
