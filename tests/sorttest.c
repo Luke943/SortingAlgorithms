@@ -5,14 +5,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-
 #include "../sorting.h"
 
 int main(void)
 {
     int loops = 10;
     int array_size = 8;
-    int max_size = 1 << 6;
+    int max_size = 10;
     srand((unsigned int)time(NULL));
     unsigned int *array = malloc(sizeof(unsigned int) * array_size);
     if (!array)

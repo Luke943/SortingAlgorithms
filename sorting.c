@@ -86,30 +86,29 @@ Continues until the base case of an empty or single-item array is reached
  */
 void quickSort(unsigned int *array, unsigned int size)
 {
-    if (size > 1)
+    if (size < 2)
+        return;
+    unsigned int pivotValue = array[size / 2]; // Midpoint used as pivot
+    int i = 0;
+    int j = size - 1;
+    while (i <= j)
     {
-        unsigned int pivotValue = array[size / 2]; // Midpoint used as pivot
-        int i = 0;
-        int j = size - 1;
-        while (i <= j)
+        while (array[i] < pivotValue)
+            i++;
+        while (array[j] > pivotValue)
+            j--;
+        if (i <= j)
         {
-            while (array[i] < pivotValue)
-                i++;
-            while (array[j] > pivotValue)
-                j--;
-            if (i <= j)
-            {
-                unsigned int tmp = array[i];
-                array[i] = array[j];
-                array[j] = tmp;
-                i++;
-                j--;
-            }
+            unsigned int tmp = array[i];
+            array[i] = array[j];
+            array[j] = tmp;
+            i++;
+            j--;
         }
-
-        quickSort(array, j + 1);
-        quickSort(array + i, size - i);
     }
+
+    quickSort(array, j + 1);
+    quickSort(array + i, size - i);
 }
 
 /* Merge sort
@@ -162,7 +161,7 @@ Keeps bisecting array until required value is found.
  */
 int binarySearch(unsigned int *sortedArray, unsigned int size, unsigned int value)
 {
-    int low = 0;
+    int low = -1;
     int high = size;
     int mid = size / 2;
     while (low + 1 < high)
@@ -201,7 +200,6 @@ void countingSort(unsigned int *array, unsigned int size)
     for (int i = 0; i < size; i++)
         counts[array[i]]++;
     int i = 0;
-    int j = 0;
     for (int j = 0; j < max; j++)
     {
         for (int k = 0; k < counts[j]; k++)
